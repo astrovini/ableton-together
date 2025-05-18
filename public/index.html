@@ -1,0 +1,38 @@
+<body>
+  <h1>Alpha 1 Editor</h1>
+  <div id="editor" contenteditable="true" style="width: 600px; height: 200px; border: 1px solid #ccc; padding: 10px;"></div>
+
+  <div id="cursors"></div>
+
+  <style>
+    #editor {
+      position: relative;
+      min-height: 200px;
+      border: 1px solid #ccc;
+      padding: 8px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #fafafa;
+      outline: none;
+    }
+    .remote-cursor {
+      position: absolute;
+      width: 2px;
+      height: 1em;
+      background: red;
+      z-index: 10;
+      pointer-events: none;
+      border-radius: 1px;
+      opacity: 0.8;
+      transition: left 0.05s, top 0.05s;
+    }
+  </style>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const userName = prompt("Enter your name") || "Anonymous";
+    window.userName = userName;
+  </script>
+  <script src="client.js"></script>
+</body>
